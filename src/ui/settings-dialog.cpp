@@ -1,4 +1,10 @@
+#include <QtGlobal>
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
+#include <QtWidgets>
+#else
 #include <QtGui>
+#endif
 #include <QDebug>
 
 #include "account-mgr.h"
@@ -32,7 +38,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent)
         mCheckLatestVersionBox->setVisible(false);
     }
 
-    #ifdef Q_WS_MAC
+    #if defined(Q_WS_MAC)
     layout()->setContentsMargins(8, 9, 9, 4);
     layout()->setSpacing(5);
     #endif
